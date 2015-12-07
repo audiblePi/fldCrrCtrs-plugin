@@ -11,6 +11,20 @@
 .loginwrapper input#user_login1 { background: #eee url(../img/username.png) no-repeat 8px 12px; }
 .loginwrapper input#user_pass1 { background: #eee url(../img/password.png) no-repeat 8px 12px; }
 
+/*Front Page Admin Menu*/
+.admin-nav li {display:inline-block;top: 5px;margin-left: 0px;}
+.admin-nav li.welcome-msg {padding: 0px 5px;display:none;font-size: 14px;border-right: 1px dotted #919191;}
+.admin-nav #menu-admin {padding:0px;}
+.admin-nav .menu-admin-container ul.menu {border:none; background:none;}
+.admin-nav .menu-admin-container ul.menu li a {padding: 0px 5px; line-height:inherit; height:inherit; border:none;}
+.admin-nav .menu-admin-container ul.menu li:nth-child(1) {display:none;}
+.admin-nav .menu-admin-container ul.menu li:nth-child(3) a {border-left: 1px dotted #919191;}
+
+/*Edit Profile Form Custom CSS*/
+.dynamic-content-wrapper.edit-profile {}
+.dynamic-content-wrapper.edit-profile .tml-user-login-wrap label {display:block;}
+.dynamic-content-wrapper.edit-profile form label{float: left;width: 200px;padding-top: 5px;}
+.dynamic-content-wrapper.edit-profile form td input{padding: 15px 10px;width: 100%;}
 
 /*Dashboard*/
 table {font-size:inherit;}

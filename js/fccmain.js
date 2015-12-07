@@ -3,7 +3,7 @@ jQuery(function($){
 	$('#user_pass1').attr('placeholder', 'Password');
 	$('#calendar-widget').datepicker();
 
-    $(document).on("click",".leftmenu li, .dropdown-menu li",function(e){
+    $(document).on("click",".leftmenu li, .dropdown-menu li.script",function(e){
     	e.preventDefault();
     	$(this).siblings().removeClass('active');
     	$(this).addClass('active');

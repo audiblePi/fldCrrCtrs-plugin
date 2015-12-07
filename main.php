@@ -21,6 +21,11 @@ require fcc_PATH . 'dashboard.php';
 add_action('wp_enqueue_scripts', 'fcc_load_scripts' );
 add_action('admin_init', 'admin_init');
 add_action('admin_menu', 'add_page');
+add_action( 'profile_update', 'custom_profile_redirect', 12 );
+function custom_profile_redirect() {
+    wp_redirect( trailingslashit( home_url()."/my-dashboard" ) );
+    exit;
+}
 
 function fcc_load_scripts(){
     wp_enqueue_style( 'fcccss', '/wp-content/plugins/fcc-dashboard/css/styles.css' );
