@@ -2,6 +2,7 @@ jQuery(function($){
 	$('#user_login1').attr('placeholder', 'Username');
 	$('#user_pass1').attr('placeholder', 'Password');
 	$('#calendar-widget').datepicker();
+	$('#document-table').tablesorter();
 
     $(document).on("click",".leftmenu li, .dropdown-menu li.script",function(e){
     	e.preventDefault();

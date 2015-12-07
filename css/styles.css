@@ -30,6 +30,11 @@
 table {font-size:inherit;}
 .dynamic-content-wrapper {display:none;}
 .dynamic-content-wrapper.current {display:block;}
+.dynamic-content-wrapper.documents table th{cursor:pointer;}
+.dynamic-content-wrapper.documents table#document-table .header{background-image: url("../img/back-table-sorter-header.png");background-repeat: no-repeat;background-position: right center;}
+.dynamic-content-wrapper.documents table#document-table .header.headerSortDown{background-image: url("../img/back-table-sorter-desc.png");background-repeat: no-repeat;background-position: right center;}
+.dynamic-content-wrapper.documents table#document-table .header.headerSortUp{background-image: url("../img/back-table-sorter-asc.png");background-repeat: no-repeat;background-position: right center;}
+
 .fcc-dashboard.mainwrapper .logopanel {max-height:50px;}
 .fcc-dashboard.mainwrapper .logopanel img{width: 75%;padding: 5px 0px 0px 5px;}
 .fcc-dashboard.mainwrapper .datewidget {min-height:21px;}

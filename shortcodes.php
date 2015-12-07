@@ -1,152 +1,68 @@
 <?php
-add_shortcode('fcc-dashboard', 'showDashboard');
+add_shortcode('fcc-documents', 'showDocuments');
 add_shortcode('fcc-calendar', 'showCalendar');
 add_shortcode('fcc-edit-profile', 'showEditProfile');
 
-function showDashboard(){
+function showDocuments(){
 ?>	
     <div class="row-fluid">
     	<div class="span8">
-            <h4 class="widgettitle">Recent Articles</h4>
+            <!-- <h4 class="widgettitle">Documents</h4> -->
             <div class="widgetcontent">
                 <div id="tabs">
                     <ul>
-                        <li><a href="#tabs-1"><span class="icon-forward"></span> Technology</a></li>
-                        <li><a href="#tabs-2"><span class="icon-eye-open"></span> Entertainment</a></li>
-                        <li><a href="#tabs-3"><span class="icon-leaf"></span> Fitness &amp; Health</a></li>
+                        <?php 
+                            $args = array('type'  => 'post', 'child_of' => 26, 'orderby' => 'name','order' => 'DESC', 'taxonomy'=> 'category' ); 
+                            $categories = get_categories( $args );
+                            foreach ($categories as $c){
+                                switch ($c->slug) {
+                                    case 'meeting-sites':   $icon = 'icon-map-marker';  break;
+                                    case 'meeting-minutes': $icon = 'icon-pencil';      break;
+                                    case 'meeting-agendas': $icon = 'icon-tasks';       break;
+                                    case 'constitution':    $icon = 'icon-legal';       break;
+                                    default:                $icon = 'icon-forward';
+                                }
+                                echo '<li><a href="#'.$c->slug.'"><span class="'.$icon.'"></span> '.$c->name.'</a></li>';
+                            }
+                        ?>  
                     </ul>
-                    <div id="tabs-1">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Title</th>
-                                    <th>Submitted By</th>
-                                    <th>Date Added</th>
-                                    <th class="center">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><a href=""><strong>Excepteur sint occaecat cupidatat non...</strong></a></td>
-                                    <td><a href="">admin</a></td>
-                                    <td>Jan 02, 2013</td>
-                                    <td class="center"><a href="" class="btn"><span class="icon-edit"></span> Edit</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href=""><strong>Sed ut perspiciatis unde omnis iste natus...</strong></a></td>
-                                    <td><a href="">themepixels</a></td>
-                                    <td>Jan 02, 2013</td>
-                                    <td class="center"><a href="" class="btn"><span class="icon-edit"></span> Edit</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href=""><strong>Sed ut perspiciatis unde omnis iste natus</strong></a></td>
-                                    <td><a href="">johndoe</a></td>
-                                    <td>Jan 01, 2013</td>
-                                    <td class="center"><a href="" class="btn"><span class="icon-edit"></span> Edit</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href=""><strong>Quis autem vel eum iure reprehenderi...</strong></a></td>
-                                    <td><a href="">amanda</a></td>
-                                    <td>Jan 01, 2013</td>
-                                    <td class="center"><a href="" class="btn"><span class="icon-edit"></span> Edit</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href=""><strong>Nemo enim ipsam voluptatem quia</strong></a></td>
-                                    <td><a href="">mandylane</a></td>
-                                    <td>Dec 31, 2012</td>
-                                    <td class="center"><a href="" class="btn"><span class="icon-edit"></span> Edit</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div id="tabs-2">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Title</th>
-                                    <th>Submitted By</th>
-                                    <th>Date Added</th>
-                                    <th class="center">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><a href=""><strong>Nemo enim ipsam voluptatem quia</strong></a></td>
-                                    <td><a href="">mandylane</a></td>
-                                    <td>Jan 04, 2012</td>
-                                    <td class="center"><a href="" class="btn"><span class="icon-edit"></span> Edit</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href=""><strong>Excepteur sint occaecat cupidatat non...</strong></a></td>
-                                    <td><a href="">admin</a></td>
-                                    <td>Jan 02, 2013</td>
-                                    <td class="center"><a href="" class="btn"><span class="icon-edit"></span> Edit</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href=""><strong>Sed ut perspiciatis unde omnis iste natus...</strong></a></td>
-                                    <td><a href="">themepixels</a></td>
-                                    <td>Jan 02, 2013</td>
-                                    <td class="center"><a href="" class="btn"><span class="icon-edit"></span> Edit</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href=""><strong>Sed ut perspiciatis unde omnis iste natus</strong></a></td>
-                                    <td><a href="">johndoe</a></td>
-                                    <td>Jan 01, 2013</td>
-                                    <td class="center"><a href="" class="btn"><span class="icon-edit"></span> Edit</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href=""><strong>Quis autem vel eum iure reprehenderi...</strong></a></td>
-                                    <td><a href="">amanda</a></td>
-                                    <td>Jan 01, 2013</td>
-                                    <td class="center"><a href="" class="btn"><span class="icon-edit"></span> Edit</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div id="tabs-3">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Title</th>
-                                    <th>Submitted By</th>
-                                    <th>Date Added</th>
-                                    <th class="center">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><a href=""><strong>Quis autem vel eum iure reprehenderi...</strong></a></td>
-                                    <td><a href="">amanda</a></td>
-                                    <td>Jan 03, 2013</td>
-                                    <td class="center"><a href="" class="btn"><span class="icon-edit"></span> Edit</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href=""><strong>Nemo enim ipsam voluptatem quia</strong></a></td>
-                                    <td><a href="">mandylane</a></td>
-                                    <td>Dec 31, 2012</td>
-                                    <td class="center"><a href="" class="btn"><span class="icon-edit"></span> Edit</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href=""><strong>Excepteur sint occaecat cupidatat non...</strong></a></td>
-                                    <td><a href="">admin</a></td>
-                                    <td>Jan 02, 2013</td>
-                                    <td class="center"><a href="" class="btn"><span class="icon-edit"></span> Edit</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href=""><strong>Sed ut perspiciatis unde omnis iste natus...</strong></a></td>
-                                    <td><a href="">themepixels</a></td>
-                                    <td>Jan 02, 2013</td>
-                                    <td class="center"><a href="" class="btn"><span class="icon-edit"></span> Edit</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href=""><strong>Sed ut perspiciatis unde omnis iste natus</strong></a></td>
-                                    <td><a href="">johndoe</a></td>
-                                    <td>Jan 01, 2013</td>
-                                    <td class="center"><a href="" class="btn"><span class="icon-edit"></span> Edit</a></td>
-                                </tr>
-                            </tbody>
-                        </table> 
-                    </div>
+                    <?php 
+                        foreach ($categories as $c) {
+                            $args = array(
+                            'category_name'    => $c->slug,
+                            'orderby'          => 'date',
+                            'order'            => 'DESC',
+                            'post_type'        => 'document'
+                        );
+                        $posts_array = get_posts( $args );
+                    ?>
+                        <div id="<?php echo $c->slug ?>">
+                            <table id="document-table" class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Submitted By</th>
+                                        <th>Date Added</th>
+                                        <th class="center">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <?php foreach ($posts_array as $p) { ?>
+                                    <tr>
+                                        <td><?php echo $p->post_title; ?></td>
+                                        <td><?php $user_info = get_userdata($p->post_author); echo $user_info->user_login; ?></td>
+                                        <td><?php echo $p->post_date; ?></td>
+                                        <td class="center">
+                                            <?php $fields = get_fields($p->ID); if ($fields['file']) : ?>
+                                                <a target="_blank" href="<?php echo $fields['file']; ?>" class="btn"><span class="icon-edit"></span> VIEW</a>
+                                            <?php endif; ?>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    <?php } ?>                            
                 </div>
             </div>
         </div>
@@ -166,7 +82,7 @@ function showEditProfile(){
 	    <h4 class="widgettitle nomargin">Edit Profile</h4>
 	    <div class="widgetcontent bordered">
 	        <div class="row-fluid">
-	            <?php echo do_shortcode('[theme-my-login default_action="profile"]'); ?>
+	            <?php echo do_shortcode('[theme-my-login default_action="profile" show_title=0]'); ?>
 	        </div>
 	    </div>
 	</div>

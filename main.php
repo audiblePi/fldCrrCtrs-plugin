@@ -31,6 +31,7 @@ function fcc_load_scripts(){
     wp_enqueue_style( 'fcccss', '/wp-content/plugins/fcc-dashboard/css/styles.css' );
     wp_enqueue_style( 'skincss', '/wp-content/plugins/fcc-dashboard/css/style.default.css' );
     wp_enqueue_style( 'pretifycss', '/wp-content/plugins/fcc-dashboard/prettify/prettify.css' );
+    wp_enqueue_style( 'pretifycss', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' );
 
     wp_enqueue_script( 'prettifyjs', '/wp-content/plugins/fcc-dashboard/prettify/prettify.js' );
     wp_enqueue_script( 'jqueryui', '/wp-content/plugins/fcc-dashboard/js/jquery-ui-1.9.2.min.js' );
@@ -39,6 +40,7 @@ function fcc_load_scripts(){
     wp_enqueue_script( 'fullcalendar', '/wp-content/plugins/fcc-dashboard/js/fullcalendar.min.js' );
     wp_enqueue_script( 'skinjs', '/wp-content/plugins/fcc-dashboard/js/custom.js' );
     wp_enqueue_script( 'fccjs', '/wp-content/plugins/fcc-dashboard/js/fccmain.js' );
+    wp_enqueue_script( 'tablesorter', '/wp-content/plugins/fcc-dashboard/js/jquery.tablesorter.min.js' );
 }
 
 ?>
