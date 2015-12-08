@@ -3,7 +3,7 @@ jQuery.noConflict();
 jQuery(document).ready(function(){
 	
 	prettyPrint();			//syntax highlighter
-	mainwrapperHeight();
+	//mainwrapperHeight();
 	responsive();
 	
 	
@@ -91,7 +91,7 @@ jQuery(document).ready(function(){
 	
 	// when resize window event fired
 	jQuery(window).resize(function(){
-		mainwrapperHeight();
+		//mainwrapperHeight();
 		responsive();
 	});
 	

@@ -2,6 +2,7 @@
 add_shortcode('fcc-documents', 'showDocuments');
 add_shortcode('fcc-calendar', 'showCalendar');
 add_shortcode('fcc-edit-profile', 'showEditProfile');
+add_shortcode('fcc-search-results', 'showSearchResults');
 
 function showDocuments(){
 ?>	
@@ -70,6 +71,19 @@ function showDocuments(){
 }
 
 function showCalendar(){
+    $args = array('type'  => 'post', 'orderby' => 'name','order' => 'DESC', 'post_type' => 'meeting', ); 
+    $the_query = new WP_Query( $args );
+    if( $the_query->have_posts() ):
+        while( $the_query->have_posts() ) : 
+            $the_query->the_post(); ?>
+            <ul class="meeting">
+                <li id="title"><?php the_title(); ?></li>
+                <li id="start"><?php the_field('start_date'); ?></li>
+                <li id="end"><?php the_field('end_date'); ?></li>
+            </ul>
+        <?php endwhile; 
+    endif; 
+    wp_reset_query();
 ?>
 	<div id='calendar-container'></div>
 <?php
@@ -85,6 +99,16 @@ function showEditProfile(){
 	        </div>
 	    </div>
 	</div>
+<?php
+}
+
+function showSearchResults(){
+?>
+<div class="row-fluid">
+    <div class="span9">
+        <ul class="resultslist"></ul>
+    </div>
+</div>
 <?php
 }
 ?>

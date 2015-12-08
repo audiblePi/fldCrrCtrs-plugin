@@ -16,7 +16,7 @@ define('fcc_PATH', plugin_dir_path(__FILE__));
 
 require fcc_PATH . 'shortcodes.php';
 require fcc_PATH . 'dashboard.php';
-//require fcc_PATH . 'ajax.php';
+require fcc_PATH . 'ajax.php';
 
 add_action('wp_enqueue_scripts', 'fcc_load_scripts' );
 add_action('admin_init', 'admin_init');

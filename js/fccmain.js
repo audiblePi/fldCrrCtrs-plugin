@@ -2,9 +2,14 @@ jQuery(function($){
 	$('#user_login1').attr('placeholder', 'Username');
 	$('#user_pass1').attr('placeholder', 'Password');
 	$('#calendar-widget').datepicker();
-	$('#document-table').tablesorter();
+	$('#meeting-sites #document-table').tablesorter();
+	$('#meeting-minutes #document-table').tablesorter();
+	$('#meeting-agendas #document-table').tablesorter();
+	$('#constitution #document-table').tablesorter();
 
-    $(document).on("click",".leftmenu li, .dropdown-menu li.script",function(e){
+	loadFullCalendar(getDates());
+
+    $(document).on("click",".leftmenu li.nav, .dropdown-menu li.script",function(e){
     	e.preventDefault();
     	$(this).siblings().removeClass('active');
     	$(this).addClass('active');
@@ -12,20 +17,55 @@ jQuery(function($){
     	loadPage($(this).text(), $(this).attr('id'));
     });
 
+    $(document).on("click",".fcc-dashboard.mainwrapper .searchwidget .btn",function(e){
+    	e.preventDefault();
+    	var query = $('.fcc-dashboard.mainwrapper .searchwidget .search-query').val();
+    	loadPage('Search Results', 'search-results');
+    	searchDocuments(query);
+    });
+
     function loadPage(p, i){
     	$('.pagetitle h1, .breadcrumb #this-crumb').html(p);
     	$('.maincontent .contentinner').find('.dynamic-content-wrapper').removeClass('current');
     	$('.maincontent .contentinner').find('.'+i).addClass('current');
-    	if ($('.dynamic-content-wrapper.calendar').css('display') === 'block')
-    	 	loadFullCalendar();
+    	if ($('.dynamic-content-wrapper.calendar').css('display') === 'block'){
+	    	$('#calendar-container').fullCalendar( 'render' );
+    	 }
     }
 
-    function loadFullCalendar(){
+    function searchDocuments(q){
+		post_data = {'myAction': 'documentSearch', 'query': q};
+
+        $.ajax({
+            type: 'post',
+            url: '/wp-content/plugins/fcc-dashboard/ajax.php',
+            data: post_data,
+            dataType: "text",
+            success: function (data) {
+                $('.dynamic-content-wrapper.search-results .resultslist').html(data);
+            }
+        });
+    }
+
+    function getDates(){
+    	var meetings = [];
+    	$('.dynamic-content-wrapper.calendar ul.meeting').each(function(){
+    		var data = {};
+            data.title = $(this).find('li#title').html(); 
+            data.start = new Date($(this).find('li#start').html());
+            data.end = new Date($(this).find('li#end').html());
+            meetings.push(data);
+    	});
+
+    	return meetings;
+    }
+
+    function loadFullCalendar(dArray){
 		var date = new Date();
 		var d = date.getDate();
 		var m = date.getMonth();
 		var y = date.getFullYear();
-		
+
 		var calendar = jQuery('#calendar-container').fullCalendar({
 			header: {
 				left: 'prev,next today',
@@ -59,41 +99,8 @@ jQuery(function($){
 				}
 				calendar.fullCalendar('unselect');
 			},
-			editable: true,
-			events: [
-				{
-					title: 'All Day Event',
-					start: new Date(y, m, 1)
-				},
-				{
-					title: 'Long Event',
-					start: new Date(y, m, d-5),
-					end: new Date(y, m, d-2)
-				},
-				{
-					title: 'Meeting',
-					start: new Date(y, m, d, 10, 30),
-					allDay: false
-				},
-				{
-					title: 'Lunch',
-					start: new Date(y, m, d, 12, 0),
-					end: new Date(y, m, d, 14, 0),
-					allDay: false
-				},
-				{
-					title: 'Birthday Party',
-					start: new Date(y, m, d+1, 19, 0),
-					end: new Date(y, m, d+1, 22, 30),
-					allDay: false
-				},
-				{
-					title: 'Click for Google',
-					start: new Date(y, m, 28),
-					end: new Date(y, m, 29),
-					url: 'http://google.com/'
-				}
-			]
+			editable: false,
+			events: dArray
 		});
 
     }
