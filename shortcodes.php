@@ -7,7 +7,6 @@ function showDocuments(){
 ?>	
     <div class="row-fluid">
     	<div class="span8">
-            <!-- <h4 class="widgettitle">Documents</h4> -->
             <div class="widgetcontent">
                 <div id="tabs">
                     <ul>
@@ -17,9 +16,9 @@ function showDocuments(){
                             foreach ($categories as $c){
                                 switch ($c->slug) {
                                     case 'meeting-sites':   $icon = 'icon-map-marker';  break;
-                                    case 'meeting-minutes': $icon = 'icon-pencil';      break;
+                                    case 'meeting-minutes': $icon = 'icon-file';      break;
                                     case 'meeting-agendas': $icon = 'icon-tasks';       break;
-                                    case 'constitution':    $icon = 'icon-legal';       break;
+                                    case 'constitution':    $icon = 'icon-align-justify';       break;
                                     default:                $icon = 'icon-forward';
                                 }
                                 echo '<li><a href="#'.$c->slug.'"><span class="'.$icon.'"></span> '.$c->name.'</a></li>';
@@ -51,7 +50,7 @@ function showDocuments(){
                                     <tr>
                                         <td><?php echo $p->post_title; ?></td>
                                         <td><?php $user_info = get_userdata($p->post_author); echo $user_info->user_login; ?></td>
-                                        <td><?php echo $p->post_date; ?></td>
+                                        <td><?php echo date("F j, Y", strtotime($p->post_date)); ?></td>
                                         <td class="center">
                                             <?php $fields = get_fields($p->ID); if ($fields['file']) : ?>
                                                 <a target="_blank" href="<?php echo $fields['file']; ?>" class="btn"><span class="icon-edit"></span> VIEW</a>
