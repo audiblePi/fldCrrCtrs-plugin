@@ -12,7 +12,10 @@ function showDocuments(){
                 <div id="tabs">
                     <ul>
                         <?php 
+                            //test site
                             $args = array('type'  => 'post', 'child_of' => 26, 'orderby' => 'name','order' => 'DESC', 'taxonomy'=> 'category' ); 
+                            //production site
+                            //$args = array('type'  => 'post', 'child_of' => 21, 'orderby' => 'name','order' => 'DESC', 'taxonomy'=> 'category' ); 
                             $categories = get_categories( $args );
                             foreach ($categories as $c){
                                 switch ($c->slug) {
@@ -95,7 +98,8 @@ function showEditProfile(){
 	    <h4 class="widgettitle nomargin">Edit Profile</h4>
 	    <div class="widgetcontent bordered">
 	        <div class="row-fluid">
-	            <?php echo do_shortcode('[theme-my-login default_action="profile" show_title=0]'); ?>
+	            <?php echo do_shortcode('[theme-my-login default_action="profile" show_title=0]'); 
+                        #echo do_shortcode('[wpmem_form user_edit /]');?>
 	        </div>
 	    </div>
 	</div>

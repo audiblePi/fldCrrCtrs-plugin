@@ -9,6 +9,7 @@ if (isset($_POST['myAction'])){
 
 function loadSearchResults($q){
     $conn = new mysqli("localhost","root","root","614357_fcc10");
+    //$conn = mysqli_connect("mariadb-096.wc1.dfw3.stabletransit.com","614357_fccadmin","FCC4jobs","614357_fcc10" );
     $result = $conn->query("SELECT * 
                             FROM vmbkmkqiq5_posts
                             WHERE post_type = 'document'
