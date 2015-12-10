@@ -28,8 +28,24 @@
 /*Edit Profile Form Custom CSS*/
 .dynamic-content-wrapper.edit-profile {}
 .dynamic-content-wrapper.edit-profile .tml-user-login-wrap label {display:block;}
-.dynamic-content-wrapper.edit-profile form label{float: left;width: 200px;padding-top: 5px;}
+.dynamic-content-wrapper.edit-profile form label{float: left;width: 100%;padding-top: 5px;}
 .dynamic-content-wrapper.edit-profile form td input{padding: 15px 10px;width: 100%;}
+
+.dynamic-content-wrapper.edit-profile #wpmem_reg form legend {display:none;}
+.dynamic-content-wrapper.edit-profile #wpmem_reg .div_text, 
+.dynamic-content-wrapper.edit-profile #wpmem_reg .div_textarea, 
+.dynamic-content-wrapper.edit-profile #wpmem_reg .div_select, 
+.dynamic-content-wrapper.edit-profile #wpmem_login .div_text, 
+.dynamic-content-wrapper.edit-profile #wpmem_reg .div_checkbox {float:left;font-size:12px; width:100%;}
+.dynamic-content-wrapper.edit-profile #wpmem_reg input[type="text"], 
+.dynamic-content-wrapper.edit-profile #wpmem_reg textarea, 
+.dynamic-content-wrapper.edit-profile #wpmem_login input[type="text"], 
+.dynamic-content-wrapper.edit-profile #wpmem_login input[type="password"] {color:#666 !important;}
+.dynamic-content-wrapper.edit-profile #wpmem_reg fieldset {margin:0px;}
+.dynamic-content-wrapper.edit-profile #wpmem_reg .noinput {width:97%;}
+.dynamic-content-wrapper.edit-profile #wpmem_reg .req-text {display:none;}
+.dynamic-content-wrapper.edit-profile #wpmem_reg .button_div {height:inherit;text-align:left;}
+.dynamic-content-wrapper.edit-profile #wpmem_reg .req {display:none;}
 
 /*Dashboard*/
 table {font-size:inherit;}

@@ -23,9 +23,18 @@ add_action('admin_init', 'admin_init');
 add_action('admin_menu', 'add_page');
 add_action( 'profile_update', 'custom_profile_redirect', 12 );
 function custom_profile_redirect() {
-    wp_redirect( trailingslashit( home_url()."/my-dashboard" ) );
+    wp_redirect( wp_get_referer());
     exit;
 }
+add_filter( 'wpmem_register_form_args', 'remove_wpmem_txt_code' );
+function remove_wpmem_txt_code( $args ){
+    $args = array(
+        'txt_before' => '',
+        'txt_after'  => ''
+    );
+    return $args;
+}
+
 
 add_action( 'wpmem_register_redirect', 'my_reg_redirect' );
 function my_reg_redirect() {

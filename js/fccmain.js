@@ -82,7 +82,7 @@ jQuery(function($){
 				week: 'week',
 				day: 'day'
 			},
-			selectable: true,
+			selectable: false,
 			selectHelper: true,
 			select: function(start, end, allDay) {
 				var title = prompt('Event Title:');
