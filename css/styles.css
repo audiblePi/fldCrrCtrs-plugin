@@ -1,15 +1,42 @@
 /*theme-my-login lgin page updates*/
 #theme-my-login1 {max-width:100%;}
-.tml-user-login-wrap label{display:none;}
+form#loginform1 .tml-user-login-wrap label,
+form#lostpasswordform1 .tml-user-login-wrap label
+{display:none;}
 .tml-user-pass-wrap label{display:none;}
 .tml-rememberme-wrap {display:none !important;}
 .tml-submit-wrap #wp-submit1 {padding: 12px 0; border: 0; text-transform: uppercase; font-size: 13px; text-shadow: 1px 1px rgba(0,0,0,0.2);box-shadow: 0 2px 3px rgba(0,0,0,0.3); background: #3b6998; color: #fff; text-shadow: 1px 1px rgba(0,0,0,0.1); background: -moz-linear-gradient(top,  #3b6998 0%, #0b4073 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3b6998), color-stop(100%,#0b4073)); background: -webkit-linear-gradient(top,  #3b6998 0%,#0b4073 100%); background: -o-linear-gradient(top,  #3b6998 0%,#0b4073 100%); background: -ms-linear-gradient(top,  #3b6998 0%,#0b4073 100%); background: linear-gradient(to bottom,  #3b6998 0%,#0b4073 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b6998', endColorstr='#0b4073',GradientType=0 ); width:100%;}
 .tml-action-links {font-size:12px;}
 .tml .tml-action-links li {border-right: 1px solid rgba(255, 255, 255, 0.1);}
 
+/*WP Members Login Custom Styles*/
 .loginwrapper img.login-logo {margin: 10px auto;}
-.loginwrapper input#user_login1 { background: #eee url(../img/username.png) no-repeat 8px 12px; }
-.loginwrapper input#user_pass1 { background: #eee url(../img/password.png) no-repeat 8px 12px; }
+/*.loginwrapper #wpmem_login {color:#666;font-size: 14px;}
+.loginwrapper #wpmem_login legend {display:none;}
+.loginwrapper #wpmem_login label {display:none;}
+.loginwrapper #wpmem_login fieldset {margin:10px 0px;}
+.loginwrapper #wpmem_login .div_text{width:100%;}
+.loginwrapper #wpmem_login .link-text {width:100%;}
+.loginwrapper #wpmem_login .button_div {height: inherit;width: 100%;}
+.loginwrapper #wpmem_login .button_div #rememberme {width:10px; box-shadow:none;}
+.loginwrapper #wpmem_login .button_div input[type="submit"] {display:block!important; padding: 12px 0; border: 0; text-transform: uppercase; font-size: 13px; text-shadow: 1px 1px rgba(0,0,0,0.2); box-shadow: 0 2px 3px rgba(0,0,0,0.3); background: #3b6998; color: #fff; text-shadow: 1px 1px rgba(0,0,0,0.1); background: -moz-linear-gradient(top, #3b6998 0%, #0b4073 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3b6998), color-stop(100%,#0b4073)); background: -webkit-linear-gradient(top, #3b6998 0%,#0b4073 100%); background: -o-linear-gradient(top, #3b6998 0%,#0b4073 100%); background: -ms-linear-gradient(top, #3b6998 0%,#0b4073 100%); background: linear-gradient(to bottom, #3b6998 0%,#0b4073 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b6998', endColorstr='#0b4073',GradientType=0 ); width: 100%; }
+*/
+
+.loginwrapper .custom.message {border: 1px solid #e6db55;
+    background-color: #ffffe0;color: #333;
+    padding: 0.5em;}
+
+.loginwrapper input#user_login1,
+.loginwrapper #wpmem_login input#user,
+.loginwrapper #wpmem_login input#log
+{ background: #eee url(../img/username.png) no-repeat 8px 12px; padding-left: 30px;}
+
+.loginwrapper input#user_pass1,
+.loginwrapper #wpmem_login input#pwd
+{ background: #eee url(../img/password.png) no-repeat 8px 12px; padding-left: 30px;}
+
+.loginwrapper #wpmem_login input#email
+{ background: #eee url(../img/password.png) no-repeat 8px 12px; padding-left: 30px;}
 
 /*Front Page Admin Menu*/
 .admin-nav {padding-top:5px;}
@@ -24,14 +51,19 @@
 /*Front Register Page*/
 #wpmem_reg input[type="text"], #wpmem_reg input[type="password"], #wpmem_reg select, #wpmem_login input[type="text"], #wpmem_login input[type="password"] {height:inherit;}
 #wpmem_msg, .wpmem_msg {padding: 20px 0 !important;}
+.tml-register form#registerform input {height: 30px;}
 
 /*Edit Profile Form Custom CSS*/
 .dynamic-content-wrapper.edit-profile {}
+.dynamic-content-wrapper.edit-profile table.tml-form-table {width:100%;}
+.dynamic-content-wrapper.edit-profile table.tml-form-table th{width: 30%;}
+.dynamic-content-wrapper.edit-profile table.tml-form-table td{}
+.dynamic-content-wrapper.edit-profile form td input{padding: 15px 10px;width: 100%;}
 .dynamic-content-wrapper.edit-profile .tml-user-login-wrap label {display:block;}
 .dynamic-content-wrapper.edit-profile form label{float: left;width: 100%;padding-top: 5px;}
 .dynamic-content-wrapper.edit-profile form td input{padding: 15px 10px;width: 100%;}
 
-.dynamic-content-wrapper.edit-profile #wpmem_reg form legend {display:none;}
+/*.dynamic-content-wrapper.edit-profile #wpmem_reg form legend {display:none;}
 .dynamic-content-wrapper.edit-profile #wpmem_reg .div_text, 
 .dynamic-content-wrapper.edit-profile #wpmem_reg .div_textarea, 
 .dynamic-content-wrapper.edit-profile #wpmem_reg .div_select, 
@@ -45,7 +77,7 @@
 .dynamic-content-wrapper.edit-profile #wpmem_reg .noinput {width:97%;}
 .dynamic-content-wrapper.edit-profile #wpmem_reg .req-text {display:none;}
 .dynamic-content-wrapper.edit-profile #wpmem_reg .button_div {height:inherit;text-align:left;}
-.dynamic-content-wrapper.edit-profile #wpmem_reg .req {display:none;}
+.dynamic-content-wrapper.edit-profile #wpmem_reg .req {display:none;}*/
 
 /*Dashboard*/
 table {font-size:inherit;}
@@ -85,5 +117,6 @@ table {font-size:inherit;}
 
 @media (max-width: 600px) {
 	.dynamic-content-wrapper.documents .ui-tabs-nav li a span{display:none;}
-	.dynamic-content-wrapper.edit-profile form label{width: 100px;}
+	.dynamic-content-wrapper.edit-profile form label{width: 150px;}
 }
+

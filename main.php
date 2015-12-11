@@ -18,30 +18,10 @@ require fcc_PATH . 'shortcodes.php';
 //require fcc_PATH . 'dashboard.php';
 require fcc_PATH . 'ajax.php';
 
-add_action('wp_enqueue_scripts', 'fcc_load_scripts' );
 add_action('admin_init', 'admin_init');
 add_action('admin_menu', 'add_page');
-add_action( 'profile_update', 'custom_profile_redirect', 12 );
-function custom_profile_redirect() {
-    wp_redirect( wp_get_referer());
-    exit;
-}
-add_filter( 'wpmem_register_form_args', 'remove_wpmem_txt_code' );
-function remove_wpmem_txt_code( $args ){
-    $args = array(
-        'txt_before' => '',
-        'txt_after'  => ''
-    );
-    return $args;
-}
 
-
-add_action( 'wpmem_register_redirect', 'my_reg_redirect' );
-function my_reg_redirect() {
-    wp_redirect( '/registration-successful/' );
-    exit();
-}
-
+add_action('wp_enqueue_scripts', 'fcc_load_scripts' );
 function fcc_load_scripts(){
     wp_enqueue_style( 'fcccss', '/wp-content/plugins/fcc-dashboard/css/styles.css' );
     //wp_enqueue_style( 'skincss', '/wp-content/plugins/fcc-dashboard/css/style.default.css' );
@@ -57,5 +37,34 @@ function fcc_load_scripts(){
     wp_enqueue_script( 'fccjs', '/wp-content/plugins/fcc-dashboard/js/fccmain.js' );
     wp_enqueue_script( 'tablesorter', '/wp-content/plugins/fcc-dashboard/js/jquery.tablesorter.min.js' );
 }
+
+// add_filter( 'wpmem_login_redirect', 'my_login_redirect', 10, 2 );
+// function my_login_redirect( $redirect_to, $user_id ) {
+//     return '/my-dashboard/';
+// }
+
+// add_filter( 'wpmem_logout_redirect', 'my_logout_redirect' );
+// function my_logout_redirect(){
+//     return '/';
+// }
+
+// add_action( 'profile_update', 'custom_profile_redirect', 12 );
+// function custom_profile_redirect() {
+//     wp_redirect( wp_get_referer());
+//     exit;
+// }
+
+// add_filter( 'wpmem_login_form_args', 'remove_wpmem_txt_code' );
+// add_filter( 'wpmem_register_form_args', 'remove_wpmem_txt_code' );
+// function remove_wpmem_txt_code( $args ){
+//     $args = array('txt_before' => '', 'txt_after'  => '');
+//     return $args;
+// }
+
+// add_action( 'wpmem_register_redirect', 'my_reg_redirect' );
+// function my_reg_redirect() {
+//     wp_redirect( '/registration-successful/' );
+//     exit();
+// }
 
 ?>

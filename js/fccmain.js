@@ -1,6 +1,9 @@
 jQuery(function($){
 	$('#user_login1').attr('placeholder', 'Username');
 	$('#user_pass1').attr('placeholder', 'Password');
+	$('#wpmem_login input#log, #wpmem_login input#user').attr('placeholder', 'Username');
+	$('#wpmem_login input#pwd').attr('placeholder', 'Password');
+	$('#wpmem_login input#email').attr('placeholder', 'Email');
 	$('#calendar-widget').datepicker();
 	$('#meeting-sites #document-table').tablesorter();
 	$('#meeting-minutes #document-table').tablesorter();
