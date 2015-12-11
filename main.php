@@ -38,33 +38,32 @@ function fcc_load_scripts(){
     wp_enqueue_script( 'tablesorter', '/wp-content/plugins/fcc-dashboard/js/jquery.tablesorter.min.js' );
 }
 
-// add_filter( 'wpmem_login_redirect', 'my_login_redirect', 10, 2 );
-// function my_login_redirect( $redirect_to, $user_id ) {
-//     return '/my-dashboard/';
-// }
+add_action( 'user_register', 'tml_user_register' );
+function tml_user_register( $user_id ) {
+    if ( !empty( $_POST['first_name'] ) )
+        update_user_meta( $user_id, 'first_name', $_POST['first_name'] );
+    if ( !empty( $_POST['last_name'] ) )
+        update_user_meta( $user_id, 'last_name', $_POST['last_name'] );
+    if ( !empty( $_POST['university'] ) )
+        update_user_meta( $user_id, 'university', $_POST['university'] );
+    if ( !empty( $_POST['title'] ) )
+        update_user_meta( $user_id, 'title', $_POST['title'] );
+}
 
-// add_filter( 'wpmem_logout_redirect', 'my_logout_redirect' );
-// function my_logout_redirect(){
-//     return '/';
-// }
+add_action( 'personal_options_update', 'my_save_extra_profile_fields' );
+add_action( 'edit_user_profile_update', 'my_save_extra_profile_fields' );
+function my_save_extra_profile_fields( $user_id ) {
+    if ( !current_user_can( 'edit_user', $user_id ) )
+        return false;
+    update_usermeta($user_id, 'university', ( isset($_POST['university']) ? $_POST['university'] : '' ) );
+    update_usermeta($user_id, 'title', ( isset($_POST['title']) ? $_POST['title'] : '' ) );
+}
 
-// add_action( 'profile_update', 'custom_profile_redirect', 12 );
-// function custom_profile_redirect() {
-//     wp_redirect( wp_get_referer());
-//     exit;
-// }
+add_action( 'profile_update', 'custom_profile_redirect', 12 );
+function custom_profile_redirect() {
+    wp_redirect( wp_get_referer());
+    exit;
+}
 
-// add_filter( 'wpmem_login_form_args', 'remove_wpmem_txt_code' );
-// add_filter( 'wpmem_register_form_args', 'remove_wpmem_txt_code' );
-// function remove_wpmem_txt_code( $args ){
-//     $args = array('txt_before' => '', 'txt_after'  => '');
-//     return $args;
-// }
-
-// add_action( 'wpmem_register_redirect', 'my_reg_redirect' );
-// function my_reg_redirect() {
-//     wp_redirect( '/registration-successful/' );
-//     exit();
-// }
 
 ?>
