@@ -12,8 +12,10 @@
 .tml-register {max-width:100%;}
 .tml-register form#registerform label {width: 30%;float: left;}
 .tml-register form#registerform input {height: 30px;width: 70%;float: left;}
-.tml-register form#registerform .tml-submit-wrap #wp-submit {width: inherit;}
-.tml-register .tml-action-links {width:100%;}
+.tml-register form#registerform .g-recaptcha {width: 304px;margin-left: 30%;}
+.tml-register form#registerform .tml-submit-wrap #wp-submit {font-weight: 700;margin-left: 30%;width: inherit;background: url(/wp-content/themes/FloridaCareerCenters/images/clickblue.png) 0 0 no-repeat; border: 0; width: 100px; color: #fff;}
+.tml-register .tml-action-links {width:100%;display:none;}
+
 
 /*theme-my-login lgin page updates*/
 #theme-my-login1 {max-width:100%;}
