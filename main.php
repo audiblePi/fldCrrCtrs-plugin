@@ -65,5 +65,24 @@ function custom_profile_redirect() {
     exit;
 }
 
+add_action( 'edit_user_profile', 'my_show_extra_profile_fields' );
+function my_show_extra_profile_fields( $user ) { ?>
+    <h3>Additional profile information</h3>
+    <table class="form-table">
+        <tr>
+            <th><label for="university">University</label></th>
+            <td>
+                <input type="text" name="university" id="university" value="<?php echo esc_attr( get_the_author_meta( 'university', $user->ID ) ); ?>" class="regular-text" /><br />
+            </td>
+        </tr>
+        <tr>
+            <th><label for="title">Title</label></th>
+            <td>
+                <input type="text" name="title" id="title" value="<?php echo esc_attr( get_the_author_meta( 'title', $user->ID ) ); ?>" class="regular-text" /><br />
+            </td>
+        </tr>
+    </table>
+<?php }
+
 
 ?>

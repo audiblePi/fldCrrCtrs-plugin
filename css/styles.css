@@ -9,7 +9,11 @@
 .admin-nav .menu-admin-container ul.menu li:nth-child(3) a {border-left: 1px dotted #919191;}
 
 /*Front Register Page*/
-.tml-register form#registerform input {height: 30px;}
+.tml-register {max-width:100%;}
+.tml-register form#registerform label {width: 30%;float: left;}
+.tml-register form#registerform input {height: 30px;width: 70%;float: left;}
+.tml-register form#registerform .tml-submit-wrap #wp-submit {width: inherit;}
+.tml-register .tml-action-links {width:100%;}
 
 /*theme-my-login lgin page updates*/
 #theme-my-login1 {max-width:100%;}
